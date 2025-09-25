@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Gallery — Dmytro Isai</title>
+  <style>
+    :root{--bg:#050806;--bg-elev:#0a100d;--text:#e7fff5;--muted:#8fb3a3;--emerald:#19a873;--jade:#2bd899;--gold:#d7b676;--stroke:#13211a;--card:#0b120f;--shadow:0 14px 40px rgba(0,0,0,.55);--radius:20px;--sans:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    *{box-sizing:border-box} html,body{min-height:100%}
+    body{margin:0;color:var(--text);font:500 16px/1.6 var(--sans);background:linear-gradient(180deg,#050806 0%,#070c09 60%,#050806 100%)}
+    .header{position:sticky;top:10px;margin:0 auto;width:95%;border-radius:20px;backdrop-filter:blur(12px);background:rgba(10,16,13,.85);border:1px solid rgba(25,168,115,.35);box-shadow:0 0 18px rgba(25,168,115,.25);z-index:1000}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+    .brand-logo{width:32px;height:32px;border-radius:50%;color:var(--emerald);box-shadow:0 0 10px rgba(25,168,115,.6),0 0 20px rgba(25,168,115,.35)}
+    .menu{display:flex;gap:18px}
+    .menu a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    .menu a:hover{color:var(--text);background:var(--bg-elev);border:1px solid var(--stroke)}
+    .menu a.active{color:var(--text);border:1px solid rgba(25,168,115,.35);background:rgba(25,168,115,.06)}
+    .section{padding:72px 0}
+    h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:0 0 12px}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+    .card{grid-column:span 4;border:1px solid var(--stroke);border-radius:16px;background:var(--card);box-shadow:var(--shadow);overflow:hidden}
+    .card img{display:block;width:100%;height:220px;object-fit:cover;transition:transform .35s ease}
+    .card:hover img{transform:scale(1.03)}
+    .card p{margin:10px 12px;color:var(--muted);font-size:.95rem}
+    @media(max-width:900px){.card{grid-column:span 6}}
+    @media(max-width:640px){.card{grid-column:span 12}}
+    .footer{padding:24px 0;border-top:1px solid var(--stroke);color:var(--muted);margin-top:40px}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="../index.html">
+          <svg class="brand-logo" viewBox="0 0 256 256" aria-hidden="true">
+            <circle cx="128" cy="128" r="124" fill="currentColor" opacity=".25"/>
+            <circle cx="128" cy="128" r="112" fill="currentColor" opacity=".45"/>
+            <circle cx="128" cy="128" r="92" fill="var(--bg)"/>
+            <g fill="currentColor">
+              <circle cx="128" cy="36" r="22"/>
+              <circle cx="128" cy="36" r="10" fill="var(--bg)"/>
+              <circle cx="48.4" cy="174" r="22"/>
+              <circle cx="48.4" cy="174" r="10" fill="var(--bg)"/>
+              <circle cx="207.6" cy="174" r="22"/>
+              <circle cx="207.6" cy="174" r="10" fill="var(--bg)"/>
+            </g>
+            <circle cx="128" cy="128" r="108" fill="none" stroke="currentColor" stroke-width="3" opacity=".35"/>
+          </svg>
+          <span>Dmytro Isai</span>
+        </a>
+        <label class="nav-btn" for="nav-toggle" aria-label="Toggle menu"><span></span></label>
+        <input type="checkbox" id="nav-toggle" hidden>
+        <div class="menu">
+          <a href="../index.html">Home</a>
+          <a href="../pages/gallery.html">Gallery</a>
+          <a href="../pages/contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Gallery -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Gallery</h1>
+        <div class="grid">
+          <figure class="card"><img src="../pages/photo/pic1.jpg" alt="Picture 1"><p>Picture 1</p></figure>
+          <figure class="card"><img src="../pages/photo/pic2.jpg" alt="Picture 2"><p>Picture 2</p></figure>
+          <figure class="card"><img src="../pages/photo/pic3.jpg" alt="Picture 3"><p>Picture 3</p></figure>
+          <figure class="card"><img src="../pages/photo/pic4.jpg" alt="Picture 4"><p>Picture 4</p></figure>
+          <figure class="card"><img src="../pages/photo/pic5.jpg" alt="Picture 5"><p>Picture 5</p></figure>
+          <figure class="card"><img src="../pages/photo/pic6.jpg" alt="Picture 6"><p>Picture 6</p></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container">© 2025 Dmytro Isai</div></footer>
+</body>
+</html>

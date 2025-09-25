@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Dmytro Isai</title>
+  <style>
+    :root{--bg:#050806;--bg-elev:#0a100d;--text:#e7fff5;--muted:#8fb3a3;--emerald:#19a873;--jade:#2bd899;--stroke:#13211a;--card:#0b120f;--shadow:0 14px 40px rgba(0,0,0,.55);--radius:20px;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;}
+    body{margin:0;color:var(--text);font:500 16px/1.6 var(--sans);background:linear-gradient(180deg,#050806 0%,#070c09 65%,#050806 100%)}
+    body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.06;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.4) 3px 3px)}
+    *{box-sizing:border-box} html,body{height:100%} html{scroll-behavior:smooth}
+    .header{position:sticky;top:10px;margin:0 auto;width:95%;border-radius:20px;backdrop-filter:blur(12px);background:rgba(10,16,13,.85);border:1px solid rgba(25,168,115,.35);box-shadow:0 0 18px rgba(25,168,115,.25);z-index:1000}
+    .container{max-width:900px;margin:0 auto;padding:0 24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+    .brand-logo{width:32px;height:32px;border-radius:50%;color:var(--emerald);box-shadow:0 0 10px rgba(25,168,115,.6),0 0 20px rgba(25,168,115,.35)}
+    .menu a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    .menu a:hover{color:var(--text);background:var(--bg-elev);border:1px solid var(--stroke)}
+    
+    .btn, a.btn, button.btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:50px; padding:0 16px; margin:5px; min-width:140px;
+      font-family:Consolas,"Courier New",monospace; font-size:16px;
+      color:var(--muted); text-decoration:none; cursor:pointer; transition:500ms;
+      background:linear-gradient(145deg,#0d0f0d,#080c09); border:1px solid #1e2a25; border-radius:6px;
+      box-shadow:-1px -5px 15px rgba(25,168,115,.25),5px 5px 15px rgba(43,216,153,.25),inset 5px 5px 10px #080c09,inset -5px -5px 10px #080c09;
+    }
+    .btn:hover{color:var(--text);box-shadow:0 0 14px rgba(25,168,115,.6),0 0 28px rgba(43,216,153,.4)}
+    .btn:active{color:var(--text);transition:100ms;box-shadow:0 0 18px rgba(25,168,115,.8),0 0 36px rgba(43,216,153,.5)}
+    .btn-email{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;min-height:36px;height:auto;min-width:unset;line-height:1;vertical-align:middle;color:var(--muted);text-decoration:none;cursor:pointer;transition:500ms;background:linear-gradient(145deg,#0d0f0d,#080c09);border:1px solid #1e2a25;border-radius:6px;box-shadow:-1px -5px 15px rgba(25,168,115,.25),5px 5px 15px rgba(43,216,153,.25),inset 5px 5px 10px #080c09,inset -5px -5px 10px #080c09}
+    .btn-email:hover{color:var(--text);box-shadow:0 0 14px rgba(25,168,115,.6),0 0 28px rgba(43,216,153,.4)}
+
+    .section{padding:72px 0}
+    h1{font-size:clamp(1.8rem,4vw,2.4rem);margin:0 0 12px}
+    .card{border:1px solid var(--stroke);background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .row{display:grid;gap:14px}
+    label{color:var(--muted);font-size:.9rem}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--stroke);background:#0a120f;color:var(--text);font:500 16px/1.4 var(--sans)}
+    input:focus,textarea:focus{outline:2px solid var(--emerald);outline-offset:2px}
+    .footer{padding:24px 0;border-top:1px solid var(--stroke);color:var(--muted);margin-top:40px}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="../index.html">
+          <svg class="brand-logo" viewBox="0 0 256 256" aria-hidden="true">
+            <circle cx="128" cy="128" r="124" fill="currentColor" opacity=".25"/>
+            <circle cx="128" cy="128" r="112" fill="currentColor" opacity=".45"/>
+            <circle cx="128" cy="128" r="92" fill="var(--bg)"/>
+            <g fill="currentColor">
+              <circle cx="128" cy="36" r="22"/>
+              <circle cx="128" cy="36" r="10" fill="var(--bg)"/>
+              <circle cx="48.4" cy="174" r="22"/>
+              <circle cx="48.4" cy="174" r="10" fill="var(--bg)"/>
+              <circle cx="207.6" cy="174" r="22"/>
+              <circle cx="207.6" cy="174" r="10" fill="var(--bg)"/>
+            </g>
+            <circle cx="128" cy="128" r="108" fill="none" stroke="currentColor" stroke-width="3" opacity=".35"/>
+          </svg>
+          <span>Dmytro Isai</span>
+        </a>
+        <label class="nav-btn" for="nav-toggle" aria-label="Toggle menu"><span></span></label>
+        <input type="checkbox" id="nav-toggle" hidden>
+        <div class="menu">
+          <a href="../index.html">Home</a>
+          <a href="../pages/gallery.html">Gallery</a>
+          <a href="../pages/contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Contact</h1>
+        <div class="card">
+          <div class="row">
+            <p style="margin:0 0 8px;color:var(--muted)">Prefer email? Click here → <a class="btn-email" href="mailto:isaidima30@gmail.com">isaidima30@gmail.com</a></p>
+            <form action="mailto:isaidima30@gmail.com" method="post" enctype="text/plain">
+              <label for="name">Your Name</label>
+              <input id="name" name="Name" placeholder="Jane Doe" required>
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" placeholder="you@example.com" required>
+              <label for="msg">Message</label>
+              <textarea id="msg" name="Message" rows="6" placeholder="Hi Dmytro, I’d like to…"></textarea>
+              <div style="margin-top:12px"><button class="btn" type="submit">Send</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container">© 2025 Dmytro Isai</div></footer>
+</body>
+</html>

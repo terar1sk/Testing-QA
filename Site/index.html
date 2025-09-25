@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dmytro Isai — Portfolio</title>
+
+  <style>
+    :root{--bg:#050806;--bg-elev:#0a100d;--text:#e7fff5;--muted:#8fb3a3;--emerald:#19a873;--jade:#2bd899;--gold:#d7b676;--stroke:#13211a;--card:#0b120f;--shadow:0 14px 40px rgba(0,0,0,.55);--radius:20px;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;--sans:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,"Noto Sans";}
+    *{box-sizing:border-box} html,body{min-height:100%} html{scroll-behavior:smooth}
+    body{margin:0;color:var(--text);font:500 16px/1.6 var(--sans);background:
+    radial-gradient(1100px 360px at 8% -6%, rgba(43,216,153,.10), transparent 45%),
+    radial-gradient(1200px 360px at 110% 106%, rgba(25,168,115,.10), transparent 50%),
+    linear-gradient(180deg,#050806 0%,#070c09 55%,#050806 100%);}
+    body::before,body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1}
+    body::before{opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0.6'/></feComponentTransfer></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");background-size:260px 260px}
+    body::after{opacity:.06;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.4) 3px 3px)}
+    #loader{position:fixed;inset:0;display:grid;place-items:center;background:#050806;z-index:9999;animation:loader-hide .9s .9s forwards ease-out}
+    @keyframes loader-hide{to{opacity:0;visibility:hidden}}
+    .loader-box{display:grid;place-items:center;gap:16px;padding:28px 36px;border-radius:20px;background:linear-gradient(180deg,var(--bg-elev),var(--card));border:1px solid rgba(215,182,118,.22);box-shadow:var(--shadow)}
+    .logo-ring{width:58px;height:58px;border-radius:50%;border:3px solid rgba(25,168,115,.35);border-top-color:var(--emerald);border-right-color:var(--jade);animation:spin 1s linear infinite;box-shadow:0 0 0 3px rgba(215,182,118,.08),inset 0 0 16px rgba(25,168,115,.25)}
+    @keyframes spin{to{transform:rotate(360deg)}} .loader-text{letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-size:.78rem}
+    
+    .header{position:sticky;top:10px;margin:0 auto;width:95%;border-radius:20px;backdrop-filter:blur(12px);background:rgba(10,16,13,.85);border:1px solid rgba(25,168,115,.35);box-shadow:0 0 18px rgba(25,168,115,.25);z-index:1000}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+    .brand-logo{width:32px;height:32px;border-radius:50%;color:var(--emerald);box-shadow:0 0 10px rgba(25,168,115,.6),0 0 20px rgba(25,168,115,.35)}
+    .brand span{font-weight:800;letter-spacing:.02em}
+    #nav-toggle{display:none}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;border:1px solid transparent}
+    .menu a:hover{color:var(--text);background:var(--bg-elev);border-color:var(--stroke)}
+    .nav-btn{display:none;cursor:pointer;padding:10px;border-radius:10px}
+    .nav-btn span,.nav-btn::before,.nav-btn::after{display:block;width:24px;height:2px;background:var(--text);border-radius:1px;content:""} .nav-btn span{margin:6px 0}
+    @media(max-width:860px){.nav-btn{display:block}.menu{position:fixed;inset:auto 0 0 0;top:66px;background:var(--bg-elev);border-top:1px solid var(--stroke);box-shadow:var(--shadow);display:grid;gap:6px;padding:14px;transform:translateY(8px);opacity:0;pointer-events:none;transition:.2s ease}#nav-toggle:checked~.menu{transform:none;opacity:1;pointer-events:auto}}
+    
+    main{position:relative;z-index:2}
+    .hero{padding:78px 0 52px}
+    .hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+    @media(max-width:960px){.hero .grid{grid-template-columns:1fr}}
+    .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-size:.8rem}
+    .h1{font-size:clamp(2.1rem,4.5vw,3.6rem);line-height:1.12;margin:.3em 0 .5em;font-weight:900;background:linear-gradient(90deg,var(--emerald),color-mix(in oklab,var(--gold) 16%,var(--jade)));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 22px rgba(43,216,153,.25)}
+    .lead{color:var(--muted);font-size:1.05rem}
+    .btns{display:flex;flex-wrap:nowrap;gap:10px;margin-top:22px;overflow:auto;}
+    
+    .btn, a.btn, button.btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:50px; padding:0 16px; margin:5px; min-width:140px;
+      font-family:Consolas,"Courier New",monospace; font-size:16px;
+      color:var(--muted); text-decoration:none; cursor:pointer; transition:500ms;
+      background:linear-gradient(145deg,#0d0f0d,#080c09); border:1px solid #1e2a25; border-radius:6px;
+      box-shadow:-1px -5px 15px rgba(25,168,115,.25),5px 5px 15px rgba(43,216,153,.25),inset 5px 5px 10px #080c09,inset -5px -5px 10px #080c09;
+    }
+    
+    .btn:hover{box-shadow:0 0 14px rgba(25,168,115,.6),0 0 28px rgba(43,216,153,.4);color:var(--text)}
+    .btn:active{box-shadow:0 0 18px rgba(25,168,115,.8),0 0 36px rgba(43,216,153,.5);color:var(--text);transition:100ms}
+    .btn.primary{border-color:var(--emerald);background:linear-gradient(145deg,#0d0f0d,#0a120f);box-shadow:0 0 16px rgba(215,182,118,.25),inset 0 0 8px rgba(25,168,115,.35)}
+    
+    .hero-card{border:1px solid var(--stroke);border-radius:var(--radius);padding:20px;background:var(--card);box-shadow:var(--shadow);font-family:var(--mono)}
+    .photo-wrap{position:relative;display:grid;place-items:center;border-radius:22px;padding:14px;background:radial-gradient(400px 120px at 10% 0%,rgba(25,168,115,.25),transparent 40%),radial-gradient(400px 140px at 100% 100%,rgba(215,182,118,.15),transparent 50%),var(--card);border:1px solid rgba(215,182,118,.25);box-shadow:var(--shadow)}
+    .photo-wrap::after{content:"";position:absolute;inset:10px;border-radius:18px;pointer-events:none;background:linear-gradient(135deg,rgba(215,182,118,.10),transparent 50%)}
+    .photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;filter:saturate(1.05) contrast(1.02);box-shadow:0 10px 24px rgba(0,0,0,.35);border:1px solid color-mix(in oklab,var(--emerald) 30%,var(--stroke))}
+    
+    .section{padding:64px 0}.section h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:0 0 18px}.section p.desc{color:var(--muted);margin:0 0 22px}
+    .footer{padding:24px 0;border-top:1px solid var(--stroke);color:var(--muted)}
+    a{text-underline-offset:3px} a:focus-visible,.btn:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:12px}
+    
+    .matrix{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(#0000,#000 15%,#000 85%,#0000);mask-image:linear-gradient(#0000,#000 15%,#000 85%,#0000)}
+    .stream{position:absolute;top:-120vh;left:calc(var(--x)*1vw);font:600 16px/1 var(--mono);color:rgba(43,216,153,.9);text-shadow:0 0 8px rgba(43,216,153,.7),0 0 22px rgba(43,216,153,.35);white-space:nowrap;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:2px;animation:fall var(--dur) linear infinite;animation-delay:var(--del);opacity:.85}
+    .stream em{color:#eafff5;text-shadow:0 0 12px rgba(255,255,255,.6),0 0 24px rgba(43,216,153,.6);font-style:normal}
+    @keyframes fall{to{transform:translateY(240vh)}}
+  </style>
+
+</head>
+<body>
+  
+  <!-- Loader -->
+  <div id="loader" role="status" aria-label="Loading">
+    <div class="loader-box"><div class="logo-ring"></div><div class="loader-text">Initializing session…</div></div>
+  </div>
+
+
+  <!-- Matrix -->
+  <div class="matrix" aria-hidden="true">
+    <span class="stream" style="--x:2; --dur:11s; --del:-2s">ﾊｶﾈ7ｱ9ﾂ1ｵ<em>ｷ</em>8ﾒ3ｼ5ｶ7ｿ1ﾈ0ﾂ8ｺ6ｱ4ﾐ7ｸ3ﾒ5ﾂ1ﾘ8ﾑ4ﾂ3ｱ6ﾎ2ﾐ8ﾅ5ﾓ1</span>
+    <span class="stream" style="--x:7; --dur:12.5s; --del:-4s">7F1C<em>A</em>0E9B3D4A7E2F5C8A1D0B6E3F2C5A7E1D9C3A6F8B2D1</span>
+    <span class="stream" style="--x:12; --dur:10.5s; --del:-1.2s">ﾐ9ﾇ3ﾓ2ﾊ8<em>ﾈ</em>1ﾂ9ｵ4ﾇ6ﾊ7ﾒ4ﾓ2ﾕ5ﾗ9ﾒ3ﾊ1ｿ7ﾊ4ﾈ8</span>
+    <span class="stream" style="--x:17; --dur:13.5s; --del:-3s">1011<em>01</em>0010110100101101001011010010</span>
+    <span class="stream" style="--x:22; --dur:12.2s; --del:-5s">QA•TEST<em>OK</em>•FLOW•E2E•A11Y•SQL•GIT•POSTMAN•SELENIUM</span>
+    <span class="stream" style="--x:28; --dur:11.8s; --del:-6.2s">ｶ3ﾒ4ｿ1ﾊ6ﾈ2<em>ｷ</em>9ﾕ4ﾗ7ﾒ2ﾓ8ﾊ3ﾇ1ﾓ9ｵ3ﾒ4ﾊ6ﾗ8</span>
+    <span class="stream" style="--x:33; --dur:14.2s; --del:-2.6s">FEA1B3<em>C9</em>D4E2A7F5C6B8A1D0E9C3A6</span>
+    <span class="stream" style="--x:38; --dur:10.8s; --del:-1.8s">01001<em>1</em>0011010010110100101101</span>
+    <span class="stream" style="--x:44; --dur:12.8s; --del:-3.8s">ｶﾞﾗ<em>ﾒ</em>ﾕﾑﾓﾈﾂﾊｿｵﾇﾐﾆﾁｻｷ</span>
+    <span class="stream" style="--x:50; --dur:11.6s; --del:-4.6s">DMYTRO<em>QA</em>•KOSICE•FEI•PY•JS•C++•SQL</span>
+    <span class="stream" style="--x:56; --dur:13.4s; --del:-5.4s">ｵ5ﾇ1ﾊ8<em>ﾂ</em>4ﾒ9ﾓ2ｿ6ﾊ3ﾗ8ﾒ1ﾈ7</span>
+    <span class="stream" style="--x:62; --dur:12.6s; --del:-2.4s">110010<em>10</em>011001010011</span>
+    <span class="stream" style="--x:68; --dur:11.2s; --del:-6.6s"><em>QA</em>•BUG•CASE•PLAN•RUN•ASSERT•TRACE</span>
+    <span class="stream" style="--x:74; --dur:14.6s; --del:-1.4s">ﾊ3ﾒ9ﾇ2ﾗ6<em>ﾈ</em>5ﾕ8ﾓ1ｵ4ﾊ7ﾒ2ﾇ9</span>
+    <span class="stream" style="--x:80; --dur:12.1s; --del:-4.1s">7E2F<em>4A</em>5C8A1D0B6E3F2</span>
+    <span class="stream" style="--x:86; --dur:11.9s; --del:-3.3s"><em>POST</em>•GET•200•401•JSON•SCHEMA</span>
+    <span class="stream" style="--x:92; --dur:13.1s; --del:-5.9s">ｻ5ｷ2ﾔ8<em>ﾓ</em>7ﾕ3ﾒ6ﾊ1ｵ9</span>
+    <span class="stream" style="--x:97; --dur:10.9s; --del:-2.9s">0101<em>01</em>00101101001</span>
+  </div>
+
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <svg class="brand-logo" viewBox="0 0 256 256" aria-hidden="true">
+            <circle cx="128" cy="128" r="124" fill="currentColor" opacity=".25"/>
+            <circle cx="128" cy="128" r="112" fill="currentColor" opacity=".45"/>
+            <circle cx="128" cy="128" r="92" fill="var(--bg)"/>
+            <g fill="currentColor">
+              <circle cx="128" cy="36" r="22"/>
+              <circle cx="128" cy="36" r="10" fill="var(--bg)"/>
+              <circle cx="48.4" cy="174" r="22"/>
+              <circle cx="48.4" cy="174" r="10" fill="var(--bg)"/>
+              <circle cx="207.6" cy="174" r="22"/>
+              <circle cx="207.6" cy="174" r="10" fill="var(--bg)"/>
+            </g>
+            <circle cx="128" cy="128" r="108" fill="none" stroke="currentColor" stroke-width="3" opacity=".35"/>
+          </svg>
+          <span>Dmytro Isai</span>
+        </a>
+        <label class="nav-btn" for="nav-toggle" aria-label="Toggle menu"><span></span></label>
+        <input type="checkbox" id="nav-toggle" hidden>
+        <div class="menu">
+          <a href="pages/gallery.html">Gallery</a>
+          <a href="pages/contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Main -->
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="grid">
+          <div>
+            <div class="kicker">Portfolio 2025</div>
+            <h1 class="h1">QA • Creator • Student</h1>
+            <p class="lead">Testing and bug hunting — it’s what I live for.</p>
+            <div class="btns">
+              <a class="btn" href="pages/gallery.html">See Gallery</a>
+              <a class="btn" href="pages/contact.html">Contact Me</a>
+            </div>
+            <div class="hero-card" style="margin-top:16px">
+              <strong>Currently:</strong>
+              <p class="lead" style="margin:.4em 0 0">QA Engineer + Student</p>
+            </div>
+          </div>
+          <div class="photo-wrap" aria-label="My photo">
+            <img class="photo" src="pages/photo/pic2.jpg" alt="My photo">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- About-->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Me</h2>
+    
+        <div class="hero-card" style="margin-top:16px">
+          <p>
+            I’m a <strong>Junior QA Engineer</strong> and <strong>Informatics student</strong> at the 
+            Technical University of Košice (FEI). Passionate about building reliable software, 
+            I bring a solid grasp of <abbr title="Software Development Life Cycle">SDLC</abbr>/<abbr title="Software Testing Life Cycle">STLC</abbr> 
+            and hands-on experience in manual testing with a growing focus on automation.
+          </p>
+        </div>
+
+        <div class="hero-card" style="margin-top:16px">
+          <strong>✦ What I do best</strong>
+          <ul style="margin:.6em 0 0; padding-left:18px">
+            <li>Crafting clear test cases &amp; plans</li>
+            <li>Finding bugs before users do</li>
+            <li>Mixing structure (regression, documentation) with curiosity (exploratory testing)</li>
+          </ul>
+        </div>
+
+        <div class="hero-card" style="margin-top:16px">
+          <strong>🛠 Tech &amp; Tools</strong>
+          <ul style="margin:.6em 0 0; padding-left:18px">
+            <li><b>Testing:</b> Jira, Postman, Selenium, Android Studio</li>
+            <li><b>Databases:</b> SQL, PostgreSQL</li>
+            <li><b>Code:</b> Python, C/C++, JavaScript</li>
+            <li><b>Web:</b> HTML, CSS · Git · Network basics</li>
+          </ul>
+        </div>
+
+        <div class="hero-card" style="margin-top:16px">
+         <strong>⌘ Languages</strong>
+          <p style="margin:.6em 0 0">English &amp; Slovak (B1), Russian &amp; Ukrainian (native)</p>
+        </div>
+
+        <div class="hero-card" style="margin-top:16px">
+          <strong>➤ Looking for</strong>
+          <p style="margin:.6em 0 0">Opportunities as a <b>Junior QA / Software Tester</b>, in Košice or remote.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="container">© 2025 Dmytro Isai.</div></footer>
+
+</body>
+</html>
